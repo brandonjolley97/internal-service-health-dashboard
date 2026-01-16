@@ -10,7 +10,6 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-
   db_test:
     image: postgres:16
     environment:
@@ -19,6 +18,24 @@ services:
       POSTGRES_DB: health_dashboard_test
     ports:
       - "5433:5432"
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg2://postgres:postgres@db:5432/health_dashboard
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend
+    environment:
+      VITE_API_BASE: http://localhost:8000
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
 
 volumes:
   pgdata:

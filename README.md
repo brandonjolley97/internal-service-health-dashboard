@@ -25,6 +25,8 @@ Once running, you can access the:
 - Frontend at http://localhost:5173/
 - Backend API docs at http://localhost:8000/docs 
 
+To stop the app and completely reset the project’s local environment, run: ```docker compose down -v```
+
 ## Testing
 To run backend tests, go to the backend directory and run: ```poetry run pytest```.  These tests validate service status transition rules and service naming constraints.
 

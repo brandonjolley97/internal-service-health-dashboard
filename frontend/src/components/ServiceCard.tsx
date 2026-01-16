@@ -129,12 +129,12 @@ export function ServiceCard({ service, onUpdated }: ServiceCardProps){
                 </button>
             </div>
 
+            {/* Displays errors for ease of debugging */}
             {error && (
                 <div className="mt-3 rounded-lg border border-red-200 bg-red-50 p-2 text-sm text-red-700">
                     {error}
                 </div>
             )}
-
 
         </div>
     );

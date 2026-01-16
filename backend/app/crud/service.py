@@ -64,5 +64,5 @@ def update_service_status(db: Session, service_id: int, update: ServiceStatusUpd
     db.refresh(service)
     return service
 
-
+# Delete
 

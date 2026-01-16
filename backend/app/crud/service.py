@@ -36,7 +36,7 @@ def get_service(db: Session, service_id: int) -> Service | None:
 
 # Read all
 def list_services(db: Session) -> list[Service]:
-    stmt = select(Service)
+    stmt = select(Service).order_by(Service.id)
     return db.execute(stmt).scalars().all()
 
 # Update
